@@ -8,6 +8,7 @@ public class Tour {
     private String typeOfHotel ;
     private int numberOfPeople;
     private STATE state ;
+    private boolean BURN;
 
     enum TYPE_OF_VOCATION{
         REST,
@@ -21,11 +22,37 @@ public class Tour {
         PAYED,
         CANCELED
     }
+
+    public boolean isBURN() {
+        return BURN;
+    }
+
+    public void setBURN(boolean BURN) {
+        this.BURN = BURN;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public Tour(String name, String location, int numberOfPeople){
         state = STATE.FREE ;
         this.name = name;
         this.location = location;
         this.numberOfPeople = numberOfPeople;
+        BURN = false;
     }
 
     public Price getPrice() {
@@ -58,6 +85,16 @@ public class Tour {
 
     public void setNumberOfPeople(int numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
+    }
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", numberOfPeople=" + numberOfPeople +
+                ", BURN=" + BURN +
+                '}';
     }
 
     public STATE getState() {
